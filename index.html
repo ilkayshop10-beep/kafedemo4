@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOIR COFFEE | Kahvenin En Güzel Hali</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#0b1011;
+color:#f5eee7;
+line-height:1.6
+}
+a{text-decoration:none;color:inherit}
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:1000;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 7%;
+background:rgba(5,8,9,.88);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,.08)
+}
+.logo{
+font-size:24px;
+font-weight:800;
+letter-spacing:3px
+}
+.logo span,.eyebrow,.section-header small,.about-text small,.special small{
+color:#c88b55
+}
+nav ul{
+display:flex;
+gap:30px;
+list-style:none
+}
+nav li a{
+font-size:14px;
+transition:.3s
+}
+nav li a:hover{color:#c88b55}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:140px 7% 80px;
+background:
+linear-gradient(90deg,rgba(4,8,9,.92),rgba(4,8,9,.55),rgba(4,8,9,.2)),
+url("IMG_2222.jpeg") center/cover no-repeat
+}
+.hero-content{max-width:720px}
+.eyebrow{
+font-size:13px;
+font-weight:bold;
+letter-spacing:5px;
+text-transform:uppercase;
+margin-bottom:20px
+}
+.hero h1{
+font-size:clamp(55px,8vw,100px);
+line-height:.95;
+letter-spacing:-4px;
+margin-bottom:28px
+}
+.hero h1 span{color:#c88b55}
+.hero p{
+max-width:580px;
+font-size:18px;
+color:#ddd5ce;
+line-height:1.8;
+margin-bottom:35px
+}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}
+.button{
+display:inline-block;
+padding:15px 28px;
+border-radius:50px;
+background:#c88b55;
+color:#fff;
+font-weight:bold;
+font-size:14px;
+transition:.3s
+}
+.button:hover{
+transform:translateY(-4px);
+background:#ad713f
+}
+.button-outline{
+background:transparent;
+border:1px solid rgba(255,255,255,.7)
+}
+.button-outline:hover{
+background:#fff;
+color:#111
+}
+
+section{padding:110px 7%}
+.section-header{
+max-width:720px;
+margin:0 auto 60px;
+text-align:center
+}
+.section-header small,.about-text small,.special small{
+text-transform:uppercase;
+letter-spacing:4px;
+font-weight:bold
+}
+.section-header h2{
+font-size:clamp(40px,5vw,64px);
+line-height:1.05;
+margin:15px 0 18px
+}
+.section-header p{color:#99918b;line-height:1.8}
+
+.about{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:70px;
+align-items:center
+}
+.about-image{
+height:580px;
+border-radius:28px;
+background:url("IMG_2222.jpeg") center/cover no-repeat;
+box-shadow:0 30px 80px rgba(0,0,0,.35)
+}
+.about-text h2{
+font-size:clamp(40px,5vw,65px);
+line-height:1;
+margin:16px 0 25px
+}
+.about-text h2 span{color:#c88b55}
+.about-text p{
+color:#a59e98;
+line-height:1.9;
+margin-bottom:18px
+}
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-top:35px
+}
+.stat{
+padding:20px;
+border:1px solid #292f30;
+border-radius:16px;
+background:#101617
+}
+.stat strong{
+display:block;
+color:#c88b55;
+font-size:27px
+}
+.stat span{color:#888;font-size:13px}
+
+.menu{background:#111718}
+.menu-grid{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px
+}
+.card{
+overflow:hidden;
+background:#171d1e;
+border:1px solid #292f30;
+border-radius:22px;
+transition:.35s
+}
+.card:hover{
+transform:translateY(-8px);
+border-color:#c88b55
+}
+.card-image{
+height:240px;
+background:url("IMG_2222.jpeg") center/cover no-repeat
+}
+.card-content{padding:26px}
+.card-content h3{
+font-size:23px;
+margin-bottom:8px
+}
+.card-content p{
+color:#96908b;
+font-size:14px;
+min-height:48px
+}
+.price{
+color:#c88b55;
+font-size:23px;
+font-weight:bold;
+margin-top:18px
+}
+
+.special{
+min-height:500px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:
+linear-gradient(rgba(5,8,9,.72),rgba(5,8,9,.72)),
+url("IMG_2222.jpeg") center/cover no-repeat
+}
+.special-content{max-width:750px}
+.special h2{
+font-size:clamp(42px,6vw,75px);
+line-height:1;
+margin:15px 0 20px
+}
+.special p{
+color:#ddd;
+font-size:18px;
+margin-bottom:30px
+}
+
+.gallery{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+grid-template-rows:260px 260px;
+gap:15px
+}
+.gallery-item{
+border-radius:20px;
+background:url("IMG_2222.jpeg") center/cover no-repeat;
+transition:.35s
+}
+.gallery-item:hover{transform:scale(1.02)}
+.gallery-item:first-child{grid-row:span 2}
+
+.contact-section{background:#111718}
+.contact{
+max-width:1050px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px
+}
+.contact-box{
+background:#171d1e;
+border:1px solid #292f30;
+border-radius:18px;
+padding:30px
+}
+.contact-box h3{
+color:#c88b55;
+margin-bottom:10px
+}
+.contact-box p{color:#aaa39e}
+
+.cta{
+text-align:center;
+padding:130px 7%;
+background:
+linear-gradient(rgba(5,8,9,.82),rgba(5,8,9,.82)),
+url("IMG_2222.jpeg") center/cover no-repeat
+}
+.cta h2{
+font-size:clamp(42px,6vw,75px);
+line-height:1;
+margin-bottom:20px
+}
+.cta p{
+font-size:18px;
+margin-bottom:30px
+}
+
+footer{
+background:#06090a;
+text-align:center;
+padding:60px 7% 25px
+}
+footer p{color:#777}
+.copyright{
+border-top:1px solid #202526;
+margin-top:30px;
+padding-top:20px;
+color:#555;
+font-size:12px
+}
+
+@media(max-width:850px){
+nav{padding:18px 5%}
+nav ul{display:none}
+.hero{
+padding:130px 6% 80px;
+background:
+linear-gradient(rgba(5,9,10,.7),rgba(5,9,10,.7)),
+url("IMG_2222.jpeg") center/cover no-repeat
+}
+section{padding:80px 6%}
+.about{
+grid-template-columns:1fr;
+gap:40px
+}
+.about-image{height:430px}
+.menu-grid{grid-template-columns:1fr}
+.gallery{
+grid-template-columns:1fr 1fr;
+grid-template-rows:250px 190px 190px
+}
+.gallery-item:first-child{
+grid-column:span 2;
+grid-row:auto
+}
+.contact{grid-template-columns:1fr}
+.stats{grid-template-columns:1fr}
+}
+
+@media(max-width:500px){
+.hero h1{font-size:54px}
+.hero p{font-size:16px}
+.gallery{
+grid-template-columns:1fr;
+grid-template-rows:repeat(5,220px)
+}
+.gallery-item:first-child{grid-column:auto}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">NOIR <span>COFFEE</span></div>
+
+<ul>
+<li><a href="#anasayfa">Ana Sayfa</a></li>
+<li><a href="#hikaye">Hikayemiz</a></li>
+<li><a href="#menu">Menü</a></li>
+<li><a href="#galeri">Galeri</a></li>
+<li><a href="#iletisim">İletişim</a></li>
+</ul>
+</nav>
+
+<section class="hero" id="anasayfa">
+<div class="hero-content">
+<div class="eyebrow">SPECIALTY COFFEE</div>
+
+<h1>
+Kahvenin<br>
+<span>en güzel hali.</span>
+</h1>
+
+<p>
+Özenle seçilmiş kahve çekirdekleri,
+taze hazırlanan kahveler ve kendine
+ait bir atmosfer.
+</p>
+
+<div class="buttons">
+<a href="#menu" class="button">Menüyü İncele</a>
+<a href="#iletisim" class="button button-outline">Bize Ulaş</a>
+</div>
+</div>
+</section>
+
+<section id="hikaye">
+<div class="about">
+
+<div class="about-image"></div>
+
+<div class="about-text">
+<small>NOIR COFFEE</small>
+
+<h2>
+Bir fincanın<br>
+<span>ötesinde.</span>
+</h2>
+
+<p>
+Kahveyi sadece bir içecek olarak değil,
+günün güzel bir anı olarak görüyoruz.
+</p>
+
+<p>
+Her fincanı özenle hazırlıyor,
+kaliteli çekirdekleri doğru tekniklerle
+buluşturuyoruz.
+</p>
+
+<div class="stats">
+<div class="stat">
+<strong>100%</strong>
+<span>Özen</span>
+</div>
+
+<div class="stat">
+<strong>6+</strong>
+<span>Kahve Çeşidi</span>
+</div>
+
+<div class="stat">
+<strong>7/7</strong>
+<span>Açığız</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="menu" id="menu">
+
+<div class="section-header">
+<small>MENÜ</small>
+<h2>Kahve seçimini yap.</h2>
+<p>
+Günün hangi saatinde olursa olsun,
+sana uygun bir kahve mutlaka var.
+</p>
+</div>
+
+<div class="menu-grid">
+
+<div class="card">
+<div class="card-image"></div>
+<div class="card-content">
+<h3>Espresso</h3>
+<p>Yoğun aromalı, güçlü ve klasik.</p>
+<div class="price">₺90</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-image"></div>
+<div class="card-content">
+<h3>Sütlü Kahve</h3>
+<p>Yumuşak içimli, süt ve espresso dengesi.</p>
+<div class="price">₺100</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-image"></div>
+<div class="card-content">
+<h3>Cappuccino</h3>
+<p>Yoğun süt köpüğü ve güçlü espresso.</p>
+<div class="price">₺125</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-image"></div>
+<div class="card-content">
+<h3>Latte</h3>
+<p>İpeksi süt köpüğü ile yumuşak kahve.</p>
+<div class="price">₺130</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-image"></div>
+<div class="card-content">
+<h3>Mocha</h3>
+<p>Kahve ve çikolatanın mükemmel buluşması.</p>
+<div class="price">₺140</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-image"></div>
+<div class="card-content">
+<h3>Iced Latte</h3>
+<p>Soğuk, ferah ve kahve aromalı.</p>
+<div class="price">₺135</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="special">
+
+<div class="special-content">
+<small>HER GÜN TAZE</small>
+
+<h2>Kahve sadece kahve değildir.</h2>
+
+<p>
+Güzel bir sohbetin, güzel bir günün
+veya kendine ayırdığın küçük bir molanın
+başlangıcı olabilir.
+</p>
+
+<a href="#iletisim" class="button">Bizi Ziyaret Et</a>
+</div>
+
+</section>
+
+<section id="galeri">
+
+<div class="section-header">
+<small>ATMOSFER</small>
+<h2>Kahve anı.</h2>
+<p>Her fincanın kendine ait bir hikayesi var.</p>
+</div>
+
+<div class="gallery">
+<div class="gallery-item"></div>
+<div class="gallery-item"></div>
+<div class="gallery-item"></div>
+<div class="gallery-item"></div>
+<div class="gallery-item"></div>
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>Bir kahveye bekliyoruz.</h2>
+
+<p>Bugün kendine güzel bir mola ver.</p>
+
+<a
+href="https://wa.me/905555555555"
+target="_blank"
+class="button"
+>
+WhatsApp'tan Ulaş
+</a>
+
+</section>
+
+<section class="contact-section" id="iletisim">
+
+<div class="section-header">
+<small>İLETİŞİM</small>
+<h2>Bizi bul.</h2>
+<p>Kahveni al, yerini seç ve keyfine bak.</p>
+</div>
+
+<div class="contact">
+
+<div class="contact-box">
+<h3>📍 Adres</h3>
+<p>
+Örnek Mahallesi,<br>
+Kahve Sokak No:12<br>
+İstanbul, Türkiye
+</p>
+</div>
+
+<div class="contact-box">
+<h3>🕐 Çalışma Saatleri</h3>
+<p>
+Pazartesi – Pazar<br>
+08:00 – 23:00
+</p>
+</div>
+
+<div class="contact-box">
+<h3>📱 Telefon</h3>
+<p>+90 555 555 55 55</p>
+</div>
+
+<div class="contact-box">
+<h3>📷 Instagram</h3>
+<p>@noircoffee</p>
+</div>
+
+</div>
+</section>
+
+<footer>
+
+<div class="logo">
+NOIR <span>COFFEE</span>
+</div>
+
+<p>İyi kahve. Güzel anlar.</p>
+
+<div class="copyright">
+© 2026 NOIR COFFEE — Tüm hakları saklıdır.
+</div>
+
+</footer>
+
+</body>
+</html>
